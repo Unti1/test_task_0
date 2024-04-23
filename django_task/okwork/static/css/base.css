@@ -1,0 +1,314 @@
+/* Общие стили для навигационной панели */
+.navbar {
+    height: 5%;
+    background-color: #114232;
+    color: #FFC470;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.navbar a{
+    color: #fff;
+    text-decoration-line: none;
+}
+
+.navbar a:hover{
+    color: #fff;
+    text-decoration-line: underline;
+}
+.navbar .logo {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .logo img {
+    height: 30px; /* Вы можете изменить размер логотипа под ваш дизайн */
+}
+
+.navbar .search-bar {
+    position: relative;
+}
+
+.navbar input[type="text"] {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.navbar .search-button {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: green;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.navbar .menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar .menu-item {
+    cursor: pointer;
+    position: relative;
+}
+
+.navbar .menu-item:hover .dropdown-menu {
+    display: block;
+}
+
+.navbar .dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    border-radius: 4px;
+}
+
+.navbar .dropdown-menu .menu-item {
+    padding: 5px 20px;
+}
+
+.navbar .dropdown-menu .menu-item:hover {
+    background-color: #f8f8f8;
+}
+
+.navbar .user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar .user-info img {
+    border-radius: 50%;
+    height: 30px; /* Выставьте размер, соответствующий дизайну */
+}
+
+/* Добавьте сюда дополнительные стили для отображения уведомлений, баланса и т.д. */
+
+
+body {
+    min-height: 100vh;
+    width: 100%;
+    background-color: #fcfcce;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Jost', sans-serif;
+}
+
+#header h1 {
+    margin-left: 3%;
+}
+#a_div {
+    background-color: #87A922;
+    padding: 0.7%;
+    text-align: center;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.a_base {
+    text-decoration: none;
+    color: #114232;
+    background-color: #AFD198;
+    /* padding: 4px; */
+    transition-duration: 0.5s;
+    transition-property: all;
+    padding: 10px;
+    border-radius: 4px;
+    margin: 10px;
+}
+
+.image { /*1920x1080*/
+    height: 216px;
+    width: 384px;
+    border-radius: 16px;
+    margin-top: 3%;
+}
+
+#footer {
+    padding: 0.5%;
+    margin-top: auto;
+    background-color: #114232;
+    color: #FFC470;
+}
+
+
+#footer a {
+    color: #FFC470;
+}
+
+.dashboard__block {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px; /* Или любой другой размер по вашему усмотрению */
+    margin: 0 auto; /* Центрировать блок на странице */
+    padding: 20px;
+    font-family: 'Arial', sans-serif; /* Или любой другой шрифт по вашему усмотрению */
+}
+
+.user-avatar {
+    display: block;
+    width: 100px; /* Размер аватара */
+    height: 100px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.user-avatar img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.dashboard__user-card-name {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.dashboard__user-card-status {
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    margin-bottom: 2px;
+}
+
+.dashboard__user-rating {
+    display: flex;
+    align-items: center;
+}
+
+.dashboard__user-rating-star {
+    fill: #ffc107; /* Цвет звезды */
+}
+
+.dashboard__user-rating-number {
+    margin-left: 3px;
+}
+
+.dashboard__user-rating-count {
+    font-size: 14px;
+    color: #6c757d;
+    margin-left: 2px;
+}
+
+.worker-status-title {
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.worker-status-switch {
+    position: relative;
+    width: 50px; /* Ширина переключателя */
+    height: 25px; /* Высота переключателя */
+    background-color: #ccc;
+    border-radius: 25
+    px;
+    margin: 0 auto;
+    }
+    
+.worker-status-switch .slider {
+position: absolute;
+width: 23px;
+height: 23px;
+left: 1px;
+bottom: 1px;
+background-color: #ffffff;
+border-radius: 50%;
+transition: 0.4s;
+}
+
+.worker-status-switch .slider:before {
+content: "";
+position: absolute;
+width: 23px;
+height: 23px;
+left: 0;
+bottom: 0;
+background-color: #ffffff;
+border-radius: 50%;
+transition: 0.4s;
+}
+
+.worker-status-switch input:checked + .slider {
+background-color: #2196F3;
+}
+
+.worker-status-switch input:checked + .slider:before {
+transform: translateX(25px);
+}
+
+.kw-progress-bar {
+height: 20px;
+background-color: #e1e1e1;
+border-radius: 10px;
+overflow: hidden;
+}
+
+.kw-progress-bar__chart {
+height: 100%;
+}
+
+.kw-progress-bar__chart-value {
+height: 100%;
+border-radius: 10px;
+transition: width 0.4s ease;
+}
+
+.kw-progress-bar__chart-value--green {
+background-color: #28a745;
+}
+
+.kw-progress-bar__chart-value--orange {
+background-color: #ffc107;
+}
+
+.kw-progress-bar__chart-value--red {
+background-color: #dc3545;
+}
+
+.kw-progress-bar__chart-value--light-green {
+background-color: #81c784;
+}
+
+.kw-progress-bar__value {
+padding: 0 10px;
+line-height: 20px;
+color: white;
+font-weight: bold;
+text-align: right;
+}
+
+.dashboard__user-card-stats-item {
+margin-bottom: 10px;
+}
+
+/* Переключатель занятости */
+.worker-status {
+display: flex;
+justify-content: center;
+margin-bottom: 20px;
+}
+

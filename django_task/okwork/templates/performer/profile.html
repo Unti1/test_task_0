@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load dict_tags %}
+
+{%block content%}
+<div class="dashboard__block">
+    <div class="dashboard__user-card-content">
+        <span class="user-avatar t-user-avatar dashboard__user-card-avatar">
+            <!-- Указываем путь к изображению пользователя -->
+            <img src="{{user.performer.avatar.url}}" alt="{{ user.username }} avatar"/>
+        </span>
+        <div class="dashboard__user-card-info">
+            <div class="dashboard__user-card-name">{{ user.username }}</div>
+            <div class="dashboard__user-card-name">{{ user.performer.contact }}</div>
+            <div class="dashboard__user-card-status">
+                <span class="mr8">Заказчик</span>
+                <div class="dashboard__user-rating" data-original-title="null">
+                    {% comment %} {% for _ in stars %}
+                    <svg fill="none" xmlns="http://www.w3.org/2000/svg" class="dashboard__user-rating-star">
+                        <path d="m8 2 1.95 3.81 4.05.774-2.844 3.128.552 4.288L8 12.122 4.292 14l.552-4.288L2 6.584l4.05-.773L8 2Z">
+                    </svg>
+                    {% endfor %} {% endcomment %}
+                    <div class="dashboard__user-rating-number">  {{ user.performer.rating }}</div>
+                    <div class="dashboard__user-rating-count">(оценка)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="dashboard__user-card-stats">
+        <div style="font-weight:bold; margin-top: 10px;">
+            <a> Основные категории заказов: </a>
+        </div>
+        <div class="dashboard__user-card-stats-item">
+            {% for cat in user.performer.sell_categories %}
+            <div class="dashboard__user-card-stats-title">{{cat}}</div>
+            <div class="kw-progress-bar">
+                <div class="kw-progress-bar__chart">
+                    <div class="kw-progress-bar__chart-value kw-progress-bar__chart-value--green" style="width: {{ user.performer.sell_categories|get_item:cat}}%;"></div>
+                </div>
+                <div class="kw-progress-bar__value">{{ user.performer.sell_categories|get_item:cat}}%</div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div>
+        <a href={% url "performer_edit" %}> Изменить <a>
+    </div>
+</div>
+
+
+{%endblock%}

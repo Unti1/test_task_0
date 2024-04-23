@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{%block content%}
+<div>
+    <h2>Login</h2>
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <label for="username">Имя пользователя:</label>
+        <input class='input' type="text" name="username" id="username">
+        <label for="password">Пароль:</label>
+        <input class='input' type="password" name="password" id="password">
+        <button type="submit">Войти</button>
+    </form>
+</div>
+{% endblock %}

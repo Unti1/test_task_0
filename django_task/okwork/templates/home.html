@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{%block content%}
+<div>
+    {% if not user.is_authenticated%}
+        <h1>Чтобы увидеть необходимые страницы, требуется войти в аккаунт</h1>
+    {% endif %}
+</div>
+{%endblock%}
+

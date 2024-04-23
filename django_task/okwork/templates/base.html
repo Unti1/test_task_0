@@ -1,0 +1,67 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href={% static "css/base.css" %}>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');</style>
+
+    <title>OkWork</title>
+</head>
+
+<body>
+    <header class="navbar">
+        <ul class="menu">
+            {% for item in menu_items %}
+                {% if user.is_authenticated and item.login_req%}
+                    {% if not item.is_leaf_node%}
+                    <li class="menu-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ item.name }}</a>
+                        <div class="dropdown-menu">
+                            {% for child in item.get_children %}
+                                <a href="{% url child.url_name %}" class="menu-item">{{ child.name }}</a>
+                            {% endfor %}
+                        </div>
+                    </li>
+                    {% else %}
+                        <li class="menu-item">
+                            <a href="{% url item.url_name %}" class="nav-link">{{ item.name }}</a>
+                        </li>
+                    {% endif %}
+                {% else %}
+                    {% if not item.login_req and not user.is_authenticated%}
+                        {% if not item.is_leaf_node%}
+                            <li class="menu-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ item.name }}</a>
+                                <div class="dropdown-menu">
+                            {% for child in item.get_children %}
+                                <a href="{% url child.url_name %}" class="menu-item">{{ child.name }}</a>
+                            {% endfor %}
+                            </div>
+                        </li>
+                        {% else %}
+                            <li class="menu-item">
+                                <a href="{% url item.url_name %}" class="nav-link">{{ item.name }}</a>
+                            </li>
+                        {% endif %}
+                    {% endif %}
+            {%endif%}        
+            
+            {% endfor %}
+        </ul>
+    
+    </header>
+
+
+    {% block content %}
+    {% endblock %}
+    
+    <br><br><br>
+    <footer id="footer">
+        <p>Артём Костюченко</p>
+        <p>Почта: <a href="mailto:kostyuchenko.work@gmail.com">kostyuchenko.work@gmail.com</a>.</p>
+    </footer>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{% static 'js/main.js' %}"></script>
+</html>
